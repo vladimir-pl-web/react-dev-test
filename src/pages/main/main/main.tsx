@@ -1,17 +1,20 @@
 import { FC, useMemo } from "react"
-import { allButtons } from "../../constants"
-import Button from "../../ui/buttons/button"
+import { allButtons } from "../../../constants"
+import Button from "../../../ui/buttons/button"
+import { NavLink } from "react-router-dom";
 
 
 const Main: FC = () => {
  const btns = useMemo(() => {
-  return allButtons.slice(0,-1).map(({open,variant,title}) => (
-   <div className="col-sm">
+  return allButtons.slice(0,-1).map(({open,variant,title,to}) => (
+    <div className="col-sm">
+    <NavLink to={to}>
     <Button
      variant={variant}
      onClick={() => console.log(open)}
      title={title}
-   />
+      />
+        </NavLink>
   </div>
  ))
 },[])

@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
-import ContactsService from './services/contactsService';
-import Main from './pages/main/main';
-import classes from './app.module.scss'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import classes from './app.module.scss';
+import Main from './pages/main/main/main';
+import All from './pages/all/all';
+import US from './pages/us/us';
 function App() {
 
 
@@ -16,7 +17,13 @@ function App() {
   
   return (
     <div className={classes.app}>
-     <Main />
+      <BrowserRouter>
+        <Routes>
+        <Route path="/" element={<Main/>} />
+        <Route path="/all" element={<All />} />
+        <Route path="/us" element={<US />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
