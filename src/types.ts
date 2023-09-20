@@ -7,5 +7,6 @@ export enum IBtnVariant{
 export interface IButtons{
  variant: IBtnVariant;
  open: boolean,
- title: string
+ title: string,
+ to: string
 }
