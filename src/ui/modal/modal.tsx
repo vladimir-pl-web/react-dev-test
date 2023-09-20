@@ -20,10 +20,10 @@ const Modal: FC<PropsWithChildren<IModal>> = ({
     <div className={classes.overlay}>
       <div className={classes.window}>
         <div>{children}</div>
-        <div className="row">
+        <div className="row px-3">
           <Search />
         </div>
-        <div className="row d-flex py-1 mt-1 justify-content-between border-top align-items-center">
+        <div className="row d-flex py-1 mt-1 px-3 justify-content-between border-top align-items-center">
           <div className="form-check d-flex align-items-center pt-3">
             <input
               className="form-check-input"
@@ -36,8 +36,8 @@ const Modal: FC<PropsWithChildren<IModal>> = ({
               Only even
             </label>
           </div>
-          <div className="d-flex pt-3 flex-wrap">
-            <ButtonList onClick={setOpen} />
+          <div className="d-flex pt-3 flex-wrap w-75 justify-content-between">
+            <ButtonList onClick={setOpen} position="end"/>
           </div>
         </div>
       </div>

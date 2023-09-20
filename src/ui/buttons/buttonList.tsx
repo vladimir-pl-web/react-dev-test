@@ -3,16 +3,17 @@ import { IButtonsList } from "./types"
 import { NavLink } from "react-router-dom"
 import Button from "./button"
 import { allButtons } from "../../constants"
+import clsx from 'clsx'
 
 
-const ButtonList: FC<IButtonsList> = ({ onClick, order }) => {
+const ButtonList: FC<IButtonsList> = ({ onClick, order,position="center" }) => {
   const btns = useMemo(() => {
     return allButtons.map(({ open, variant, title, to }, index) => {
       const shown = order && order + 1 === index ? "none" : "flex"
 
       return (
         <div
-          className="col-sm flex justify-content-center py-2"
+          className={clsx("col-sm flex py-2 px-0",`justify-content-${position}`)}
           style={{ display: shown }}
         >
           <NavLink to={to}>
