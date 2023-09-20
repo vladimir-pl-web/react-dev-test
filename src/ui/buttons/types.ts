@@ -10,3 +10,8 @@ export interface IButton
   onClick: () => void
   title: string
 }
+
+export interface IButtonsList {
+  order?: number
+  onClick: (data: boolean) => void
+}

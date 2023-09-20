@@ -2,7 +2,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import classes from "./app.module.scss"
 import Main from "./pages/main/main/main"
 import All from "./pages/all/all"
-import US from "./pages/us/us"
+
+import USA from "./pages/usa/usa"
 function App() {
   // useEffect(() => {
   //   const getResult = async () => {
@@ -19,7 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/all" element={<All />} />
-          <Route path="/us" element={<US />} />
+          <Route path="/usa" element={<USA />} />
         </Routes>
       </BrowserRouter>
     </div>
