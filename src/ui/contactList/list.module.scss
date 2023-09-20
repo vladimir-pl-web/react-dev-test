@@ -1,0 +1,15 @@
+.list{
+ height: 300px;
+ overflow-y: auto;
+ background: red
+}
+.listItem{
+ cursor:pointer;
+ transition: all 0.3s ease-in;
+ &:hover{
+  background: #cecece;
+ }
+}
+.active{
+ background: #cecece;
+}
