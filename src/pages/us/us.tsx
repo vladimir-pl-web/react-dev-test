@@ -1,11 +1,7 @@
 import { FC } from "react"
 
 const US: FC = () => {
- return (
-  <div>
-   
-  </div>
- )
+  return <div></div>
 }
 
 export default US
