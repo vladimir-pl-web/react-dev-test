@@ -1,4 +1,5 @@
 import ButtonList from "../buttons/buttonList"
+import Search from "../search/search"
 import classes from "./modal.module.scss"
 import { IModal } from "./types"
 import { FC, PropsWithChildren, useState } from "react"
@@ -13,14 +14,17 @@ const Modal: FC<PropsWithChildren<IModal>> = ({
   const onCheckHandle = () => {
     setChecked(!checked)
   }
-  
+
   if (!isOpen) return null
   return (
     <div className={classes.overlay}>
       <div className={classes.window}>
         <div>{children}</div>
-        <div className="row d-flex pt-5 justify-content-between">
-          <div className="form-check d-flex align-items-center">
+        <div className="row">
+          <Search />
+        </div>
+        <div className="row d-flex py-1 mt-1 justify-content-between border-top align-items-center">
+          <div className="form-check d-flex align-items-center pt-3">
             <input
               className="form-check-input"
               type="checkbox"
@@ -32,8 +36,7 @@ const Modal: FC<PropsWithChildren<IModal>> = ({
               Only even
             </label>
           </div>
-
-          <div className="w-75 d-flex">
+          <div className="d-flex pt-3 flex-wrap">
             <ButtonList onClick={setOpen} />
           </div>
         </div>

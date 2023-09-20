@@ -1,6 +1,6 @@
 import { FC } from "react"
 import { useModal } from "../../hooks/modal"
-import Modal from "../../ui/buttons/modal/modal"
+import Modal from "../../ui/modal/modal"
 
 const USA: FC = () => {
   const { open, onOpen } = useModal()

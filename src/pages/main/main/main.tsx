@@ -1,6 +1,6 @@
 import { FC, useState } from "react"
-import ButtonList from "../../../ui/buttons/buttons/buttonList"
 import { useModal } from "../../../hooks/modal"
+import ButtonList from "../../../ui/buttons/buttonList"
 
 const Main: FC = () => {
   const { onOpen } = useModal()

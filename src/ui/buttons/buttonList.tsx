@@ -1,8 +1,9 @@
 import { FC, useMemo } from "react"
 import { IButtonsList } from "./types"
-import { allButtons } from "../../../constants"
 import { NavLink } from "react-router-dom"
-import Button from "../button"
+import Button from "./button"
+import { allButtons } from "../../constants"
+
 
 const ButtonList: FC<IButtonsList> = ({ onClick, order }) => {
   const btns = useMemo(() => {
@@ -11,7 +12,7 @@ const ButtonList: FC<IButtonsList> = ({ onClick, order }) => {
 
       return (
         <div
-          className="col-sm flex justify-content-center"
+          className="col-sm flex justify-content-center py-2"
           style={{ display: shown }}
         >
           <NavLink to={to}>
