@@ -1,22 +1,22 @@
 import React, { useEffect } from 'react';
-import './App.css';
 import ContactsService from './services/contactsService';
-
+import Main from './pages/main/main';
+import classes from './app.module.scss'
 function App() {
 
 
-  useEffect(() => {
-    const getResult = async () => {
-      const res = await ContactsService.getContacts()
-      console.log(res,"res")
-    }
-   console.log(getResult(),"res")
+  // useEffect(() => {
+  //   const getResult = async () => {
+  //     const res = await ContactsService.getContacts()
+  //     console.log(res,"res")
+  //   }
+  //  console.log(getResult(),"res")
     
-  }, [])
+  // }, [])
   
   return (
-    <div className="App">
-      Hello from pastor line test
+    <div className={classes.app}>
+     <Main />
     </div>
   );
 }
