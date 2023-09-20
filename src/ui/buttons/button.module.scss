@@ -1,5 +1,6 @@
 .button {
   color: white;
+  min-width: 120px;
   transition: scale 0.3s ease;
   &:hover {
     scale: 1.05;
