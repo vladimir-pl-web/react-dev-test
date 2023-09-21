@@ -22,9 +22,8 @@ export interface IContact {
 }
 export interface IParams {
   companyId: number
-  //query: null | { name?: string; number?: string }
-  query:string|number
-  page: number
+  query: string | number |null
+  page: number |null
   countryId: number | null
   noGroupDuplicates: number
 }

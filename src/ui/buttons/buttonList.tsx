@@ -16,6 +16,7 @@ const ButtonList: FC<IButtonsList> = ({
 
       return (
         <div
+          key={index}
           className={clsx(
             "col-sm flex py-2 px-0",
             `justify-content-${position}`

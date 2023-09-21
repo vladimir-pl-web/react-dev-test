@@ -7,7 +7,11 @@ const All: FC = () => {
   console.log(open, "open")
   return (
     <div>
-      <Modal isOpen={true} setOpen={onOpen} />
+      <Modal
+         title="All"
+        isOpen={true}
+        setOpen={onOpen}
+      />
 
     </div>
   )

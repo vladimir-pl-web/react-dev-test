@@ -7,7 +7,10 @@ const USA: FC = () => {
   console.log(open, "open")
   return (
     <div>
-      <Modal isOpen={true} setOpen={onOpen} />
+      <Modal
+        title="USA"
+        isOpen={true} setOpen={onOpen}
+      />
     </div>
   )
 }

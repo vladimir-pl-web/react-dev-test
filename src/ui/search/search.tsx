@@ -2,17 +2,20 @@ import { ChangeEvent, FC, useEffect, useState } from "react"
 import classes from "./search.module.scss"
 import { ReactComponent as SearchLogo } from "../../assets/icons/glass.svg"
 import { useDebounce } from "../../hooks/debounce"
+import { useActions } from "../../hooks/useActions"
 
 const Search: FC = () => {
   const [term, setTerm] = useState<string>("")
-  const debouncedValue = useDebounce(term, 300)
+  const debouncedValue = useDebounce(term, 1000)
+  const{setParams,fetchContacts}=useActions()
 
   const onTermSet = (event: ChangeEvent<HTMLInputElement>) => {
     setTerm(event.target.value)
   }
 
   const onSearch = () => {
-    setTerm("")
+    setParams({ key: "query", value: term })
+    fetchContacts()
   }
 
   const onKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -25,9 +28,10 @@ const Search: FC = () => {
     }
   }
   useEffect(() => {
-    if (debouncedValue) console.log(term)
+    if (debouncedValue) onSearch()
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [debouncedValue])
+  }, [debouncedValue,term])
   return (
     <div onKeyDown={(e) => onKeyDown(e)} className="input-group mb-3">
       <input

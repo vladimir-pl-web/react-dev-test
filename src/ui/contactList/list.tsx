@@ -24,7 +24,10 @@ const ContactList: FC<IContactList> = ({data}) => {
   const titles = useMemo(() => {
     return titleNames.map((title, index) => {
       const border = index === 0 ? "none" : "border-left"
-      return <h6 className={clsx("col w-25 text-left", border)}>{title}</h6>
+      return <h6
+        key={index}
+        className={clsx("col w-25 text-left", border)}
+      >{title}</h6>
     })
   }, [])
 
@@ -40,9 +43,10 @@ const ContactList: FC<IContactList> = ({data}) => {
 
   const content = useMemo(() => {
     return data.map((contact, index) => {
-      const { last_name, first_name, country } = contact
+      const { last_name, first_name, country,id } = contact
       return (
         <li
+          key={id}
           onClick={() => onClickHandler(index, contact)}
           className={clsx(
             "h-auto list-group-item d-flex flex-wrap pl-4",
