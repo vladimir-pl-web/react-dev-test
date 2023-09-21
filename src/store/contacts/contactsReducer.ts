@@ -13,18 +13,19 @@ import {
   SET_DETAILS,
   SET_LOADING,
   SET_PARAMS,
+  SET_SCROLL,
   contactsActionsType,
 } from "./types"
 
-
 export const initialState = {
   isLoading: false,
+  isScroll: false,
   contacts: [] as IContact[],
   currentContact: null as IContact | null,
   params: {
     companyId: 560,
     query: null,
-    page: null,
+    page: 2,
     noGroupDuplicates: 1,
     countryId: null as number | null,
   },
@@ -37,6 +38,8 @@ export const contactsReducer: Reducer<IContacts, any> = (
   switch (action.type) {
     case SET_LOADING:
       return { ...state, isLoading: action.payload }
+    case SET_SCROLL:
+      return { ...state, isScroll: action.payload }
     case SET_DETAILS:
       return { ...state, currentContact: action.payload }
     case SET_CONTACTS:

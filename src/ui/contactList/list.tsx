@@ -7,10 +7,16 @@ import ContactDetails from "./contactDetails"
 import { useActions } from "../../hooks/useActions"
 import { IContact } from "../../types"
 import { IContactList } from "./types"
+import Scrollbars from "react-custom-scrollbars"
+import { useTypedSelector } from "../../hooks/useTypedSelector"
 
-const ContactList: FC<IContactList> = ({data}) => {
+const ContactList: FC<IContactList> = ({ data }) => {
   const { active, setActive } = useActive()
   const [details, setDetails] = useState<boolean>(false)
+  const { params, contacts, isScroll } = useTypedSelector(
+    (state) => state.contacts
+  )
+  const { fetchContacts, setParams, setScroll } = useActions()
 
   const onActive = useCallback(
     (index: number) => {
@@ -20,14 +26,23 @@ const ContactList: FC<IContactList> = ({data}) => {
     },
     [setActive]
   )
+  const onScroll = (top: number) => {
+    if (top === 1 && !isScroll) {
+      const { page } = params
+      setParams({ key: "page", value: page + 1 })
+      setScroll(true)
+      fetchContacts()
+    }
+  }
 
   const titles = useMemo(() => {
     return titleNames.map((title, index) => {
       const border = index === 0 ? "none" : "border-left"
-      return <h6
-        key={index}
-        className={clsx("col w-25 text-left", border)}
-      >{title}</h6>
+      return (
+        <h6 key={index} className={clsx("col w-25 text-left", border)}>
+          {title}
+        </h6>
+      )
     })
   }, [])
 
@@ -43,9 +58,9 @@ const ContactList: FC<IContactList> = ({data}) => {
 
   const content = useMemo(() => {
     return data.map((contact, index) => {
-      const { last_name, first_name, country,id } = contact
+      const { last_name, first_name, country, id } = contact
       return (
-        <li
+        <div
           key={id}
           onClick={() => onClickHandler(index, contact)}
           className={clsx(
@@ -59,7 +74,7 @@ const ContactList: FC<IContactList> = ({data}) => {
           <div className="col w-25 text-left">{first_name}</div>
           <div className="col w-25 text-left">{last_name}</div>
           <div className="col w-25 text-left">{country}</div>
-        </li>
+        </div>
       )
     })
   }, [active, data, onClickHandler])
@@ -67,12 +82,20 @@ const ContactList: FC<IContactList> = ({data}) => {
   return (
     <>
       <div className="p-4 d-flex flex-wrap h-auto">{titles}</div>
-      <ul
-        className={clsx("list-group list-group-flush mb-5 mt-2", classes.list)}
+      <Scrollbars
+        disabled
+        onScrollFrame={(value) => onScroll(value.top)}
+        autoHeight
+        hideTracksWhenNotNeeded
+        className={clsx(
+          "list-group list-group-flush mb-5 mt-2 bg-primary",
+          classes.list
+        )}
       >
         {content}
-      </ul>
-
+      </Scrollbars>
+      {isScroll && <div>Loading...</div>}
+      {!contacts.length && <div>No contacts found</div>}
       <ContactDetails
         className={!details ? classes.close : classes.open}
         onClose={() => setDetails(false)}

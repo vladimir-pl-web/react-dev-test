@@ -5,15 +5,20 @@ import {
   SET_DETAILS,
   SET_LOADING,
   SET_PARAMS,
+  SET_SCROLL,
   setContactsType,
   setDetailsType,
   setLoadingType,
   setParamsType,
+  setScrollType,
 } from "./types"
 import ContactsService from "../../services/contactsService"
 
 export const setLoading = (loading: boolean): setLoadingType => {
   return { type: SET_LOADING, payload: loading }
+}
+export const setScroll = (scroll: boolean): setScrollType => {
+  return { type: SET_SCROLL, payload: scroll }
 }
 
 export const setParams = (payload: {
@@ -27,7 +32,7 @@ export const setDeatils = (payload: IContact): setDetailsType => {
   return { type: SET_DETAILS, payload }
 }
 
-export const setContacts = (data: IContact[]) => {
+export const setContacts = (data: IContact[]): setContactsType => {
   return { type: SET_CONTACTS, payload: data }
 }
 
@@ -42,4 +47,5 @@ export const fetchContacts = () => async (dispatch: Dispatch) => {
     console.log(e)
   }
   dispatch(setLoading(false))
+  dispatch(setScroll(false))
 }

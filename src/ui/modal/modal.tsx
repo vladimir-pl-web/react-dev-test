@@ -8,23 +8,16 @@ import classes from "./modal.module.scss"
 import { IModal } from "./types"
 import { FC, PropsWithChildren, useMemo, useState } from "react"
 
-const Modal: FC<PropsWithChildren<IModal>> = ({
-  isOpen,
-  setOpen,
-  title
-}) => {
+const Modal: FC<PropsWithChildren<IModal>> = ({ isOpen, setOpen, title }) => {
   const [checked, setChecked] = useState<boolean>(false)
   const { contacts } = useTypedSelector((state) => state.contacts)
 
-  
   const filteredContacts = useMemo(() => {
-    return contacts.filter((contact)=> contact.id % 2 === 0)
+    return contacts.filter((contact) => contact.id % 2 === 0)
   }, [contacts])
-
 
   const onCheckHandle = () => {
     setChecked(!checked)
-   
   }
 
   if (!isOpen) return null
@@ -32,10 +25,9 @@ const Modal: FC<PropsWithChildren<IModal>> = ({
     <div className={classes.overlay}>
       <div className={classes.window}>
         <h6>{title}</h6>
-        <div>{
-          <ContactList
-          data={checked ? filteredContacts : contacts}
-        />}</div>
+        <div>
+          {<ContactList data={checked ? filteredContacts : contacts} />}
+        </div>
         <div className="row px-3">
           <Search />
         </div>

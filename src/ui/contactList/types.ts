@@ -10,6 +10,6 @@ export interface IDetail
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   onClose: () => void
 }
-export interface IContactList{
+export interface IContactList {
   data: IContact[]
 }

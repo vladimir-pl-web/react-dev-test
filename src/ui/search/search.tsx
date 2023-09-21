@@ -7,7 +7,7 @@ import { useActions } from "../../hooks/useActions"
 const Search: FC = () => {
   const [term, setTerm] = useState<string>("")
   const debouncedValue = useDebounce(term, 1000)
-  const{setParams,fetchContacts}=useActions()
+  const { setParams, fetchContacts } = useActions()
 
   const onTermSet = (event: ChangeEvent<HTMLInputElement>) => {
     setTerm(event.target.value)
@@ -31,7 +31,7 @@ const Search: FC = () => {
     if (debouncedValue) onSearch()
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [debouncedValue,term])
+  }, [debouncedValue, term])
   return (
     <div onKeyDown={(e) => onKeyDown(e)} className="input-group mb-3">
       <input
