@@ -16,6 +16,7 @@ export default class ContactsService {
         const values = Object.values(res.data.contacts)
         const mappedValues: IContact[] = values.map((el: any) => {
           return {
+            id: +el.id,
             first_name: el.first_name,
             last_name: el.last_name,
             email: el.email,

@@ -12,6 +12,7 @@ export interface IButtons {
 }
 
 export interface IContact {
+  id:number
   first_name: string
   last_name: string
   email: string | null
@@ -21,7 +22,8 @@ export interface IContact {
 }
 export interface IParams {
   companyId: number
-  query: null | { name: string; number: string }
+  //query: null | { name?: string; number?: string }
+  query:string|number
   page: number
   countryId: number | null
   noGroupDuplicates: number
