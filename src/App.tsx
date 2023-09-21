@@ -5,10 +5,7 @@ import All from "./pages/all/all"
 
 import USA from "./pages/usa/usa"
 
-
 function App() {
-
-  
   return (
     <div className={classes.app}>
       <BrowserRouter>

@@ -37,7 +37,7 @@ const Modal: FC<PropsWithChildren<IModal>> = ({
             </label>
           </div>
           <div className="d-flex pt-3 flex-wrap w-75 justify-content-between">
-            <ButtonList onClick={setOpen} position="end"/>
+            <ButtonList onClick={setOpen} position="end" />
           </div>
         </div>
       </div>

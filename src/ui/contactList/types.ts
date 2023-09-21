@@ -1,11 +1,11 @@
-import { DetailedHTMLProps, HTMLAttributes } from "react";
+import { DetailedHTMLProps, HTMLAttributes } from "react"
 
-
-export interface IListItems{
- active: number;
- setActive:(index:number)=>void
+export interface IListItems {
+  active: number
+  setActive: (index: number) => void
 }
 
-export interface IDetail extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>{
- onClose:()=>void
+export interface IDetail
+  extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  onClose: () => void
 }
