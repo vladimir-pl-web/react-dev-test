@@ -2,7 +2,7 @@ import { FC } from "react"
 import { IButton } from "./types"
 import clsx from "clsx"
 import classes from "./button.module.scss"
-import { IBtnVariant } from "../../types"
+import { IBtnVariant, IContact } from "../../types"
 import { useActions } from "../../hooks/useActions"
 
 const Button: FC<IButton> = ({
@@ -12,7 +12,7 @@ const Button: FC<IButton> = ({
   className,
   ...rest
 }) => {
-  const { fetchContacts, setParams } = useActions()
+  const { fetchContacts, setParams,setDeatils } = useActions()
 
   const onClickHandler = () => {
     if (variant === IBtnVariant.B) {
@@ -24,6 +24,7 @@ const Button: FC<IButton> = ({
       fetchContacts()
     }
     onClick()
+    setDeatils({} as IContact )
   }
   return (
     <button

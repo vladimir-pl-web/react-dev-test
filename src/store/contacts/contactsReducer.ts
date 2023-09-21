@@ -23,9 +23,8 @@ export const initialState = {
   currentContact: null as IContact | null,
   params: {
     companyId: 560,
-     //query: null as { name: string; number: string } | null,
-    query: "11",
-    page: 1,
+    query: null,
+    page: null,
     noGroupDuplicates: 1,
     countryId: null as number | null,
   },

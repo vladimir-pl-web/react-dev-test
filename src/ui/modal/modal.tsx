@@ -11,9 +11,10 @@ import { FC, PropsWithChildren, useMemo, useState } from "react"
 const Modal: FC<PropsWithChildren<IModal>> = ({
   isOpen,
   setOpen,
+  title
 }) => {
   const [checked, setChecked] = useState<boolean>(false)
-  const contacts = useTypedSelector((state) => state.contacts.contacts)
+  const { contacts } = useTypedSelector((state) => state.contacts)
 
   
   const filteredContacts = useMemo(() => {
@@ -30,6 +31,7 @@ const Modal: FC<PropsWithChildren<IModal>> = ({
   return (
     <div className={classes.overlay}>
       <div className={classes.window}>
+        <h6>{title}</h6>
         <div>{
           <ContactList
           data={checked ? filteredContacts : contacts}
