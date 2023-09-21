@@ -12,7 +12,7 @@ const Button: FC<IButton> = ({
   className,
   ...rest
 }) => {
-  const { fetchContacts, setParams,setDeatils } = useActions()
+  const { fetchContacts, setParams, setDeatils } = useActions()
 
   const onClickHandler = () => {
     if (variant === IBtnVariant.B) {
@@ -24,7 +24,9 @@ const Button: FC<IButton> = ({
       fetchContacts()
     }
     onClick()
-    setDeatils({} as IContact )
+    setDeatils({} as IContact)
+    setParams({ key: "query", value: null })
+    setParams({ key: "page", value: 1 })
   }
   return (
     <button

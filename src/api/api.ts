@@ -8,7 +8,6 @@ export const instance = axios.create({
 })
 
 instance.interceptors.request.use(async (config) => {
-  console.log(config, "config")
   if (config.headers && process.env.REACT_APP_TOKEN) {
     config.headers.Authorization = `Bearer ${process.env.REACT_APP_TOKEN}`
   }
