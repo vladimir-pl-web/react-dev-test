@@ -1,25 +1,39 @@
+import { useActions } from "../../hooks/useActions"
+import { useTypedSelector } from "../../hooks/useTypedSelector"
+import { IContact } from "../../types"
 import ButtonList from "../buttons/buttonList"
+import ContactList from "../contactList/list"
 import Search from "../search/search"
 import classes from "./modal.module.scss"
 import { IModal } from "./types"
-import { FC, PropsWithChildren, useState } from "react"
+import { FC, PropsWithChildren, useMemo, useState } from "react"
 
 const Modal: FC<PropsWithChildren<IModal>> = ({
   isOpen,
-  children,
   setOpen,
 }) => {
   const [checked, setChecked] = useState<boolean>(false)
+  const contacts = useTypedSelector((state) => state.contacts.contacts)
+
+  
+  const filteredContacts = useMemo(() => {
+    return contacts.filter((contact)=> contact.id % 2 === 0)
+  }, [contacts])
+
 
   const onCheckHandle = () => {
     setChecked(!checked)
+   
   }
 
   if (!isOpen) return null
   return (
     <div className={classes.overlay}>
       <div className={classes.window}>
-        <div>{children}</div>
+        <div>{
+          <ContactList
+          data={checked ? filteredContacts : contacts}
+        />}</div>
         <div className="row px-3">
           <Search />
         </div>
@@ -37,7 +51,7 @@ const Modal: FC<PropsWithChildren<IModal>> = ({
             </label>
           </div>
           <div className="d-flex pt-3 flex-wrap w-75 justify-content-between">
-            <ButtonList onClick={setOpen} position="end"/>
+            <ButtonList onClick={setOpen} position="end" />
           </div>
         </div>
       </div>

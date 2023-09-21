@@ -1,74 +1,75 @@
-.list{
- height: 300px;
- overflow-y: auto;
+.list {
+  height: 300px;
+  overflow-y: auto;
 }
-.listItem{
- cursor:pointer;
- transition: all 0.3s ease-in;
- position:relative;
- &:hover{
-  background: #cecece;
- }
+.listItem {
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+  position: relative;
+  &:hover {
+    background: #cecece;
+  }
 }
-.details{
- position:absolute;
- top:0;
- right:0;
- bottom:0;
- background: white;
- z-index: 12;
- overflow-y: auto;
- box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
- 
+.details {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  z-index: 12;
+  overflow-y: auto;
+  box-shadow:
+    rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
-.button{
- position:absolute;
- top:20px;
- right:20px;
- width:30px;
- height:30px;
- border-radius: 5px;
- border:none;
+.button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
 
- transition:scale .5s;
- &:hover{
-  scale:1.05
- }
+  transition: scale 0.5s;
+  &:hover {
+    scale: 1.05;
+  }
 }
-.open{
- width:300px;
- animation: slideIn 0.3s forwards;
+.open {
+  width: 300px;
+  animation: slideIn 0.3s forwards;
 }
-.close{
- animation:slideOut 0.3s forwards;;
- width:0
+.close {
+  animation: slideOut 0.3s forwards;
+  width: 0;
 }
-.active{
- background: #cecece;
+.active {
+  background: #cecece;
 }
 @keyframes slideIn {
- from {
-  margin-left: 100%;
-  width: 0%;
-  opacity:0
-}
+  from {
+    margin-left: 100%;
+    width: 0%;
+    opacity: 0;
+  }
 
-to {
-  margin-left: 0%;
-  width: 300px;
-  opacity:1
-}
+  to {
+    margin-left: 0%;
+    width: 300px;
+    opacity: 1;
+  }
 }
 @keyframes slideOut {
- from {
-  margin-left: 0%;
-  width: 300px;
-  opacity:1
-}
+  from {
+    margin-left: 0%;
+    width: 300px;
+    opacity: 1;
+  }
 
-to {
- margin-left: 100%;
- width: 0%;
- opacity:0
-}
+  to {
+    margin-left: 100%;
+    width: 0%;
+    opacity: 0;
+  }
 }

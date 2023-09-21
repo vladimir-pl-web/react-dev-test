@@ -4,16 +4,8 @@ import Main from "./pages/main/main/main"
 import All from "./pages/all/all"
 
 import USA from "./pages/usa/usa"
+
 function App() {
-  // useEffect(() => {
-  //   const getResult = async () => {
-  //     const res = await ContactsService.getContacts()
-  //     console.log(res,"res")
-  //   }
-  //  console.log(getResult(),"res")
-
-  // }, [])
-
   return (
     <div className={classes.app}>
       <BrowserRouter>

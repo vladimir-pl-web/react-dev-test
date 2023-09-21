@@ -1,9 +1,11 @@
-import { FC, useState } from "react"
+import { FC, useEffect, useState } from "react"
 import { useModal } from "../../../hooks/modal"
 import ButtonList from "../../../ui/buttons/buttonList"
 
 const Main: FC = () => {
   const { onOpen } = useModal()
+
+  useEffect(() => {}, [])
 
   return (
     <>
