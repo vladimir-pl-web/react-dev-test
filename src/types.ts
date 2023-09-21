@@ -10,3 +10,12 @@ export interface IButtons {
   title: string
   to: string
 }
+
+export interface IContact{
+  first_name: string;
+  last_name: string;
+  email: string | null;
+  phone_number: string;
+  address: string;
+  country: string;
+ }

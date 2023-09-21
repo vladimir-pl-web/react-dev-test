@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
@@ -28,6 +29,7 @@
     "react-router-dom": "^6.16.0",
     "react-scripts": "5.0.1",
     "redux": "^4.2.1",
+    "redux-thunk": "^2.4.2",
     "reselect": "^4.1.8",
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"
@@ -40,10 +42,17 @@
     "format": "npx prettier --write ."
   },
   "eslintConfig": {
-    "extends": ["react-app", "react-app/jest"]
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
-    "production": [">0.2%", "not dead", "not op_mini all"],
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
