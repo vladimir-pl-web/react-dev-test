@@ -14,7 +14,7 @@ const Modal: FC<PropsWithChildren<IModal>> = ({
   title
 }) => {
   const [checked, setChecked] = useState<boolean>(false)
-  const contacts = useTypedSelector((state) => state.contacts.contacts)
+  const { contacts } = useTypedSelector((state) => state.contacts)
 
   
   const filteredContacts = useMemo(() => {

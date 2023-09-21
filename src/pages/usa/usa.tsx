@@ -1,16 +1,23 @@
 import { FC } from "react"
 import { useModal } from "../../hooks/modal"
 import Modal from "../../ui/modal/modal"
+import { useTypedSelector } from "../../hooks/useTypedSelector"
+import Loader from "../../ui/loader/loader"
 
 const USA: FC = () => {
-  const { open, onOpen } = useModal()
-  console.log(open, "open")
+  const {onOpen } = useModal()
+  const { isLoading} = useTypedSelector((state) => state.contacts)
   return (
     <div>
-      <Modal
-        title="USA"
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <Modal
+        title="ALL"
         isOpen={true} setOpen={onOpen}
       />
+      )}
+
     </div>
   )
 }
