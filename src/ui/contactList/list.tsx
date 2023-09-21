@@ -4,16 +4,11 @@ import clsx from 'clsx'
 import classes from './list.module.scss'
 import { useActive } from "../../hooks/activeItem"
 import ContactDetails from "./contactDetails"
-import { useActions } from "../../hooks/useActions"
 
 const ContactList: FC= () => {
   const { active, setActive } = useActive()
   const [details, setDetails] = useState<boolean>(false)
-  const { getData } = useActions()
-  
-  useEffect(() => {
-    getData()
-  },[])
+
 
  const onActive = useCallback((index:number) => {
    setActive(index)

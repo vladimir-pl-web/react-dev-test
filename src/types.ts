@@ -18,4 +18,10 @@ export interface IContact{
   phone_number: string;
   address: string;
   country: string;
+}
+export interface IParams{
+  companyId: number;
+  query: null | { name: string, number: string }
+  page: number
+  countryId:number | null
  }

@@ -1,16 +1,18 @@
-import { bindActionCreators } from "@reduxjs/toolkit";
-import { useMemo } from "react";
 import { useDispatch } from "react-redux";
-import { contactSlice } from "../store/contactsReducer";
-import * as contactsActions from '../store/contactsActions'
-
-const allActions = {
+import { AppThunk } from "../store/store";
+import { useMemo } from "react";
+import { bindActionCreators } from "redux";
+import * as contactsActions from '../store/contacts/contactsActions'
+const actions = {
  ...contactsActions,
- ...contactSlice.actions,
-};
 
+}
+
+export const useAppDispatch = () => useDispatch<AppThunk>()
 export const useActions = () => {
- const dispatch = useDispatch();
-
- return useMemo(() => bindActionCreators(allActions, dispatch), [dispatch])
+ const dispatch = useDispatch<AppThunk>()
+    
+ return useMemo(() => {
+  return bindActionCreators(actions, dispatch)
+ }, [dispatch])
 }

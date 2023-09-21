@@ -26,7 +26,7 @@ const ButtonList: FC<IButtonsList> = ({ onClick, order,position="center" }) => {
         </div>
       )
     })
-  }, [onClick, order])
+  }, [onClick, order, position])
   return <>{btns}</>
 }
 
